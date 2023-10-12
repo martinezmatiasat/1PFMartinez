@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+    <p>What's your favorite animal?</p>
+
+    <form [formGroup]="createCourseForm">
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="w-100">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name">
+                    <mat-error>
+                        <span *ngIf="nameControl?.hasError('required')">El campo no puede quedar vacío</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="w-100">
+                    <mat-label>Duración</mat-label>
+                    <input matInput formControlName="duration">
+                    <mat-error>
+                        <span *ngIf="durationControl?.hasError('required')">El campo no puede quedar vacío</span>
+                        <!-- <span *ngIf="durationControl?.hasError('required')">El valor debe ser numérico</span> -->
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="w-100">
+                    <mat-label>Medida de tiempo</mat-label>
+                    <mat-select formControlName="timeUnit">
+                        <mat-option *ngFor="let timeUnit of timeUnits" [value]="timeUnit.value">
+                            {{timeUnit.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>
+                        <span *ngIf="timeUnitControl?.hasError('required')">El campo no puede quedar vacío</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+
+    <!-- <mat-form-field>
+        <mat-label>Favorite Animal</mat-label>
+        <input matInput [(ngModel)]="data.animal">
+    </mat-form-field> -->
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="createCourseForm.get('name')?.value" cdkFocusInitial>Guardar</button>
+</div>
