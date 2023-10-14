@@ -21,7 +21,7 @@
                     <input matInput formControlName="duration">
                     <mat-error>
                         <span *ngIf="durationControl?.hasError('required')">El campo no puede quedar vacío</span>
-                        <!-- <span *ngIf="durationControl?.hasError('required')">El valor debe ser numérico</span> -->
+                        <span *ngIf="durationControl?.hasError('pattern')">El valor debe ser numérico</span>
                     </mat-error>
                 </mat-form-field>
             </div>
@@ -41,12 +41,14 @@
         </div>
     </form>
 
-    <!-- <mat-form-field>
-        <mat-label>Favorite Animal</mat-label>
-        <input matInput [(ngModel)]="data.animal">
-    </mat-form-field> -->
 </div>
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Cancelar</button>
-    <button mat-button [mat-dialog-close]="createCourseForm.get('name')?.value" cdkFocusInitial>Guardar</button>
+    <button 
+        mat-button [mat-dialog-close]="createCourseForm.get('name')?.value" 
+        cdkFocusInitial 
+        [disabled]="isInvalid()"
+        (onclick)="saveCourse()">
+            Guardar
+    </button>
 </div>

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 interface TimeUnit {
-  value: string;
-  viewValue: string;
+  value: string,
+  viewValue: string
 }
 
 @Component({
@@ -23,7 +23,7 @@ export class CreateCourseComponent {
   constructor(private formBuilder: FormBuilder) {
     this.createCourseForm = this.formBuilder.group({
       name: ['', Validators.required],
-      duration: ['', Validators.required],
+      duration: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
       timeUnit: ['', Validators.required]
     });
   }
@@ -38,5 +38,13 @@ export class CreateCourseComponent {
 
   public get timeUnitControl() {
     return this.createCourseForm.get('timeUnit');
+  }
+
+  public isInvalid() {
+    return this.createCourseForm.invalid;
+  }
+
+  public saveCourse() {
+    console.log(this.createCourseForm);
   }
 }
