@@ -47,7 +47,7 @@
     <button 
         mat-button [mat-dialog-close]="createCourseForm.get('name')?.value" 
         cdkFocusInitial 
-        [disabled]="isInvalid()"
+        [disabled]="createCourseForm.invalid"
         (onclick)="saveCourse()">
             Guardar
     </button>
