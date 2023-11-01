@@ -9,11 +9,11 @@ import { HomeComponent }          from './home/home.component';
 import { CoursesComponent }       from './courses/courses.component';
 import { MatToolbarModule }       from '@angular/material/toolbar';
 import { CreateCourseComponent }  from './create-course/create-course.component';
-import { SharedModule }           from '../shared/shared.module';
+import { SharedModule }           from '../../shared/shared.module';
 import { MatTableModule }         from '@angular/material/table';
 import { UsersComponent }         from './users/users.component';
 import { UserDetailsComponent }   from './user-details/user-details.component';
-import { AppRoutingModule }       from '../app-routing.module';
+import { AppRoutingModule }       from '../../app-routing.module';
 
 @NgModule({
   declarations: [ 

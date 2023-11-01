@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './dashboard/home/home.component';
-import { UsersComponent } from './dashboard/users/users.component';
-import { CoursesComponent } from './dashboard/courses/courses.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { HomeComponent } from './modules/dashboard/home/home.component';
+import { UsersComponent } from './modules/dashboard/users/users.component';
+import { CoursesComponent } from './modules/dashboard/courses/courses.component';
 import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [

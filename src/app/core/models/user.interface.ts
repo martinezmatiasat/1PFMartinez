@@ -2,5 +2,6 @@ export interface User {
     id:     number,
     name:   string,
     type:   string,
-    present: boolean
+    present: boolean,
+    //actions: string
 }
